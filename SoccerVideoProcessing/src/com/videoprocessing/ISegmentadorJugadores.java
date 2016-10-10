@@ -10,4 +10,5 @@ public interface ISegmentadorJugadores {
 	
 	public Mat obtenerMascaraCampo(Mat pFrame);
 	public Mat obtenerMascaraJugadores(Mat pFrame);
+	public Mat obtenerBlobs(Mat pCancha, Mat pJugadores);
 }
