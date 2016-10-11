@@ -16,8 +16,8 @@ public class Test {
 	{
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 	    // Cargar las imágenes por probar 
-        Mat manualFrame = Imgcodecs.imread("C:\\Users\\jonaranjo\\Pictures\\frames_1\\frame1.jpg");
-        Mat automaticFrame = Imgcodecs.imread("C:\\Users\\jonaranjo\\Pictures\\frames_1\\0c.jpg");
+        Mat manualFrame = Imgcodecs.imread("imagenes/manual.jpg");
+        Mat automaticFrame = Imgcodecs.imread("imagenes/automatica.jpg");
         // Convertir las imágenes a imágenes binarias
         Imgproc.cvtColor(manualFrame, manualFrame, Imgproc.COLOR_BGR2GRAY);
         Imgproc.cvtColor(automaticFrame, automaticFrame, Imgproc.COLOR_BGR2GRAY);
