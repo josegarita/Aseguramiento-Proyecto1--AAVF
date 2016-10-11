@@ -10,7 +10,7 @@ public interface ISegmentadorJugadores {
 	/**
 	 * 
 	 * @param pFrame
-	 * @return
+	 * @return interface
 	 */
 	public Mat obtenerMascaraCampo(Mat pFrame);
 	/**

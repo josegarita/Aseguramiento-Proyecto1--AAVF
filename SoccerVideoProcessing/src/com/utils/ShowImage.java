@@ -21,13 +21,14 @@ public class ShowImage
 {
 	public static void showResult(Mat img)
 	{
-	    Imgproc.resize(img, img, new Size(640, 480));
+		int width = 640;
+		int height = 480;
+	    Imgproc.resize(img, img, new Size(width, height));
 	    MatOfByte matOfByte = new MatOfByte();
 	    Imgcodecs.imencode(".jpg", img, matOfByte);
 	    byte[] byteArray = matOfByte.toArray();
 	    BufferedImage bufImage = null;
-	    try 
-	    {
+	    try {
 	        InputStream in = new ByteArrayInputStream(byteArray);
 	        bufImage = ImageIO.read(in);
 	        JFrame frame = new JFrame();
@@ -36,8 +37,7 @@ public class ShowImage
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.setVisible(true);
 	    } 
-	    catch (IOException | HeadlessException e) 
-	    {
+	    catch (IOException | HeadlessException e) {
 	        e.printStackTrace();
 	    }
 	}

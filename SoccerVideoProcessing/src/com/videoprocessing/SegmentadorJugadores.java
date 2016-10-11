@@ -17,7 +17,7 @@ import org.opencv.imgproc.Imgproc;
 public class SegmentadorJugadores implements ISegmentadorJugadores {
 
 	@Override
-	public Mat obtenerMascaraCampo(Mat pFrame) {
+	public Mat obtenerMascaraCampo(final Mat pFrame) {
 		// Se convierte el espacio de color de la imagen de RGB a HSV
 		Mat hsv = new Mat();
 		hsv.create(pFrame.size(), CvType.CV_8U);
@@ -36,14 +36,20 @@ public class SegmentadorJugadores implements ISegmentadorJugadores {
 		Core.inRange(canales.get(0), verde_inferior, verde_superior, mascaraCancha);
 		
 		// Rellenar los huecos de la máscara
-		Imgproc.morphologyEx(mascaraCancha, mascaraCancha, Imgproc.MORPH_OPEN, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(40,40)));
-		Imgproc.morphologyEx(mascaraCancha, mascaraCancha, Imgproc.MORPH_CLOSE, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(52,52)));
+		int width1 = 40, height1 = 40;
+		int width2 = 52, height2 = 52;
+		Imgproc.morphologyEx(mascaraCancha, mascaraCancha, 
+				Imgproc.MORPH_OPEN, Imgproc.getStructuringElement(
+						Imgproc.MORPH_RECT, new Size(width1, height1)));
+		Imgproc.morphologyEx(mascaraCancha, mascaraCancha, 
+				Imgproc.MORPH_CLOSE, Imgproc.getStructuringElement(
+						Imgproc.MORPH_RECT, new Size(width2, height2)));
         	
 		return mascaraCancha;
 	}
 
 	@Override
-	public Mat obtenerMascaraJugadores(Mat pFrame) {
+	public Mat obtenerMascaraJugadores(final Mat pFrame) {
 		
 		// Se convierte el espacio de color de la imagen de RGB a HSV
 		Mat hsv = new Mat();
@@ -56,7 +62,9 @@ public class SegmentadorJugadores implements ISegmentadorJugadores {
 		
 		// Normalización de la imagen
 		Mat normalHSV = new Mat();
-		Core.normalize(canales.get(0), normalHSV, 255, 0, Core.NORM_MINMAX);
+		int colormax = 255, colormin = 0;
+		Core.normalize(canales.get(0), normalHSV, 
+				colormax, colormin, Core.NORM_MINMAX);
 		
 		// Cálculo de la varianza local de la imagen
 		Mat mu = new Mat();
@@ -70,14 +78,18 @@ public class SegmentadorJugadores implements ISegmentadorJugadores {
         Imgproc.threshold(mu, mu, 0, 255, Imgproc.THRESH_OTSU);
         
         //Rellenar hollos en la imagen resultado
-        Imgproc.morphologyEx(mu, mu, Imgproc.MORPH_OPEN, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(5,5)));
-        Imgproc.morphologyEx(mu, mu, Imgproc.MORPH_CLOSE, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(13,13)));
+        Imgproc.morphologyEx(mu, mu, Imgproc.MORPH_OPEN, 
+        		Imgproc.getStructuringElement(Imgproc.MORPH_RECT, 
+        				new Size(5,5)));
+        Imgproc.morphologyEx(mu, mu, Imgproc.MORPH_CLOSE, 
+        		Imgproc.getStructuringElement(Imgproc.MORPH_RECT, 
+        				new Size(13,13)));
              
 		return mu;
 	}
 
 	@Override
-	public Mat obtenerBlobs(Mat pCancha, Mat pJugadores) {
+	public Mat obtenerBlobs(final Mat pCancha, final Mat pJugadores) {
 		
 		//Creación de la matriz resultante
 		Mat hier = new Mat(pJugadores.rows(),pJugadores.cols(),pJugadores.type());
@@ -86,8 +98,10 @@ public class SegmentadorJugadores implements ISegmentadorJugadores {
         Core.bitwise_and(pJugadores, pCancha, hier);
         
         // Quitar líneas que pueden quedar en la cancha
-        int verticalSize = hier.rows() / 30;
-        Mat verticalStruct = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(7,verticalSize));
+        int lineas = 30;
+        int verticalSize = hier.rows() / lineas;
+        Mat verticalStruct = Imgproc.getStructuringElement(
+        		Imgproc.MORPH_RECT, new Size(7, verticalSize));
         Imgproc.erode(hier, hier, verticalStruct, new Point(-1,-1), 1);
         Imgproc.dilate(hier, hier, verticalStruct, new Point(-1,-1), 1);
         
