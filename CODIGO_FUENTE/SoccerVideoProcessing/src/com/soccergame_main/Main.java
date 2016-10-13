@@ -20,17 +20,17 @@ public class Main  {
 	 *  video de entrada.
 	 */
 	private static String _pathAlVideo = 
-			"C:\\Users\\jonaranjo\\Downloads\\game.avi";
+			"C:\\ACS\\game.avi";
 	/**
 	 * video resultado.
 	 */
 	private static String _pathAlVideoRes = 
-			"C:\\Users\\jonaranjo\\Downloads\\resultadoVideo.avi";
+			"C:\\ACS\\resultadoVideo.avi";
 	/**
 	 *  cada frame donde se almacena.
 	 */
 	private static String _pathAImagenes = 
-			"C:\\Users\\jonaranjo\\Pictures\\frames\\";
+			"C:\\ACS\\frames\\";
 	
 	/**
 	 * @param args
@@ -59,7 +59,7 @@ public class Main  {
 
                 Mat hier = s.obtenerBlobs(cancha, jugadores);
 
-                v.write(hier);
+                //v.write(hier);
 
                 Imgcodecs.imwrite(_pathAImagenes + i + "c.jpg", hier);
                 Imgcodecs.imwrite(_pathAImagenes + i + ".jpg", frame);
