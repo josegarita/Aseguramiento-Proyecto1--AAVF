@@ -1,0 +1,594 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Avance 1 proyecto: Sistema de Análisis de Videos de Fútbol - Segmentación
+ y clasificación no supervisada de jugadores.
+\end_layout
+
+\begin_layout Date
+01-09-16
+\end_layout
+
+\begin_layout Author
+Jose Garita 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+and { Mario Naranjo}
+\backslash
+and {Manuel Calderón}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Estándares de codificación
+\end_layout
+
+\begin_layout Subsection
+Estándares escogidos
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{5ex}
+\end_layout
+
+\end_inset
+
+De los diferentes estándares existentes en java tales como sería el de google,
+ el de oracle (sun), se escogió el Sun Code Convenctios, ya que para este
+ existe una herramienta llamada Check Style (en la sección de herramientas
+ se mencionará un poco más sobre este), también se escogió este estándar
+ este es el estándar usado en la especificación de lenguajes java, también
+ es el usado en oracle.
+ El estándar de Sun tiene ya años desde que fue escrito, y especifica diferentes
+ partes de como manejar el código, permitiendo reducir los costos de mantenimien
+to, hace el código más legible y más limpio.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+par
+\end_layout
+
+\end_inset
+
+ En cuanto a JavaScript parte de la decisión fue lo parecida a la de java,
+ ya que existe una herramienta (JSHint) que permite a cabo llevar el chequeo.
+ Se usará el JavaScript Style Guide de JQuery, al igual que Sun, JQuery
+ tiene años de trabajar en esto dando gran variedad de herramientas de JavaScrip
+t y estilos.
+\end_layout
+
+\begin_layout Subsubsection
+Propiedades del estándar de Java
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{5ex}
+\end_layout
+
+\end_inset
+
+Entre las partes escritas del estándar o propiedades que más nos resultaron
+ importantes al escogerlo, están: 
+\end_layout
+
+\begin_layout Itemize
+Manejo del nombre de archivos: permite una serie de regulaciones, de formatos
+ y nombres, algo de suma importancia ya que un código con nombres poco significa
+tivos se vuelve dificil de interpretar.
+\end_layout
+
+\begin_layout Itemize
+Organización de archivos: da un orden de como organizar cada archivo, desde
+ comentarios, clases, métodos y otros, lo cuál permite mantener un orden
+ grupal de los sistemas.
+\end_layout
+
+\begin_layout Itemize
+Comentarios: se da una serie de ejemplos y reglas de como manejar comentarios,
+ si bien esto no afecta directamente al funcionamiento, da una legibilidad
+ a la hora de la documentación, previniendo el desorden.
+\end_layout
+
+\begin_layout Itemize
+Declaraciones: se indica como hacer las declaraciones, nombres y colocaciones
+ en el código, lo cuál mantiene orden y legibilidad en los bloques de declaracio
+nes.
+\end_layout
+
+\begin_layout Itemize
+Sentencias: da una serie de reglas de como manejar los manejos de variables,
+ returns, if-else, try catch, ciclos.
+ Esta parte es de bastenate importancia, ya que permite legibilidad y comprensió
+n del código entre las partes involucradas en el desarrollo, además ayuda
+ a mejorar costumbres en el orden de las sentencias.
+\end_layout
+
+\begin_layout Itemize
+Nombres: esta es referido a variables, clases, paquetes, métodos entre otros,
+ importante para dar a comprender que hace lo nombrado y evitar confusiones.
+\end_layout
+
+\begin_layout Subsubsection
+Propiedades del estándar de JavaScript
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{5ex}
+\end_layout
+
+\end_inset
+
+Entre las partes escritas del estándar o propiedades que más nos resultaron
+ importantes al escogerlo, están:
+\end_layout
+
+\begin_layout Itemize
+Espaciado: da una serie de reglas de como manejar espaciados, máximo de
+ caracteres por línea y separaciones en sntencias.
+ Lo cuál permite mantener orden y dar un control en líneas.
+\end_layout
+
+\begin_layout Itemize
+Constructores: se menciona como invocar los constructores.
+ Da una base a seguir para una creación correcta de constructores.
+\end_layout
+
+\begin_layout Itemize
+Igualdades: menciona como hacer igualdades y como no hacerlas, dando un
+ control para mantener claridad y un solo formato.
+\end_layout
+
+\begin_layout Itemize
+Comentarios: al igual que en java es para dar un orden y legibilidad.
+\end_layout
+
+\begin_layout Itemize
+Switch: al igual que en java son para dar formato, claridad y mejorar costumbres.
+\end_layout
+
+\begin_layout Itemize
+Nombres: esta es importante para evitar confusiones, dar nombres que representen
+ la funcionalidad y no generar palabras incompletas.
+\end_layout
+
+\begin_layout Subsection
+Herramientas escogidas 
+\end_layout
+
+\begin_layout Subsubsection
+Herramienta de Java
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{5ex}
+\end_layout
+
+\end_inset
+
+La herramienta seleccionada es el Check Style, esta herramienta permite
+ el análisis estático del código, este sigue una serie de reglas las entre
+ las cuales están las del Sun Code Conventions (estándar escogido), esta
+ herramienta automatiza el proceso de chequear tareas, es una herramienta
+ configurable, permite encontrar problemas de diseño, legibilidad y formatos.
+ Ejemplo de verificación en xml <checkstyle config="docs/sun_checks.xml"
+ file="Check.java"/>.
+\end_layout
+
+\begin_layout Subsubsection
+Herramienta de JavaScript
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{5ex}
+\end_layout
+
+\end_inset
+
+La herramienta seleccionada es el JSHint, la cuál es una herramienta para
+ la detección de errores y problemas en los códigos de JavaScript, además
+ de reforzar los estándares de codificación.
+ Esta herramienta es sumamente flexible y se ajusta al ambiente que se espera
+ ejecutar.
+\end_layout
+
+\begin_layout Section
+Diagramas
+\end_layout
+
+\begin_layout Subsection
+Diagrama de componentes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Users/JoseR/OneDrive/ACS/PROYECTOS/DIAGRAMAS/Diagrama de Componentes/versión 2/componentes.png
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Diagrama de clases
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename C:/Users/JoseR/OneDrive/ACS/PROYECTOS/DIAGRAMAS/Diagrama de Clases/VideoAnalisis.png
+	scale 38
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Patrón elegido:
+\end_layout
+
+\begin_layout Standard
+Singleton
+\end_layout
+
+\begin_layout Subsection
+Razón:
+\end_layout
+
+\begin_layout Standard
+Los patrones creacionales son patrones que se implementan al crear objetos
+ en este caso lo único que se usa es en la creación de nuevos videos, pero
+ estos no se almacenan, solo se procesan, por lo tanto la única creación
+ es al iniciar el proceso de los videos, entonces un patrón creacional no
+ llega al caso.
+ No obstante el algoritmo kMedias es un algoritmo único que solo debe ser
+ y analizarse en una instancia y no tener varias kmedias corriendo, por
+ lo tanto se va a implementar por un patrón de instancia única llamado Singleton.
+\end_layout
+
+\begin_layout Standard
+Los patrones comportamiento, se deben a la responsabilidades de los objetos,
+ sus clases y los algoritmos que posee, pero en este caso volvemos a caer
+ al mismo detalle:
+\end_layout
+
+\begin_layout Itemize
+Chain of Responsibility: no existe la clases con responsabilidades similares
+ y este lleve mensajes entre ellas, por lo tanto este patrón se descarta
+\end_layout
+
+\begin_layout Itemize
+Interpreter: el recibir elemento del exterior y escribir, de igual manera
+ no se ocupa más que retornar los videos y recibir uno de carga.
+ No es necesaria un interprete.
+\end_layout
+
+\begin_layout Itemize
+Iterator: la compisición de elementos por su algoritmo no es tal, cada clase
+ varía en su objetivo y no compartes funcionalidades.
+\end_layout
+
+\begin_layout Itemize
+Mediator : este es similar al interprete, la idea es que se comuniquen entre
+ clases.
+ Patrón no útil.
+\end_layout
+
+\begin_layout Itemize
+Memento: no lleva propiedades de momentos que se se puede regresar, solo
+ procesa y descarga los videos por cada fase.
+\end_layout
+
+\begin_layout Itemize
+Observer: se puede implementar para cuando se termina de procesar el video,
+ al acabar procesarlo, debe notificar a la interfaces web.
+ No obstante la interfaz gráfica es sólo una y no hay por el momento lugar
+ en este avance.
+\end_layout
+
+\begin_layout Itemize
+Los demás patrones sucede igual, estos solo era para dar una pequeñas explicaici
+ón del porque no los elegimos.
+\end_layout
+
+\begin_layout Standard
+Los patrones estructurales son de comspisición dentro de clases.
+ Estos patrones fueron analizados en el grupo de trabajo y se concluye que
+ ninguno es factible hasta este momento.
+\end_layout
+
+\begin_layout Subsection
+Bibliografias:
+\end_layout
+
+\begin_layout Standard
+"Patrón De Diseño." - Wikipedia, La Enciclopedia Libre.
+ N.p., 30 May 2016.
+ Web.
+ 28 Ago.
+ 2016.
+\end_layout
+
+\begin_layout Section
+Actividades de evaluación de aseguramiento de la calidad
+\end_layout
+
+\begin_layout Standard
+A continuación se presentan las actividades para el aseguramiento de la
+ calidad del sistema de análisis automatizado de videos de fútbol: segmentación
+ y clasificación no supervisada de jugadores.
+ Estas actividades se realizan al finalizar cada <<sprint>> 
+\end_layout
+
+\begin_layout Subsection
+Conformidad del diseño
+\end_layout
+
+\begin_layout Itemize
+Realizar la trazabilidad de cada módulo, aparato o componente de diseño
+ del sistema con cada requerimiento.
+ 
+\end_layout
+
+\begin_layout Itemize
+Realizar y aplicar un <<checklist>> para evaluar el diseño realizado (evaluar
+ la claridad del modelo) http://users.csc.calpoly.edu/~jdalbey/205/Deliver/designQA
+checklist.html 
+\end_layout
+
+\begin_layout Itemize
+Verificar que los diagramas y documentos de diseño y la matriz de trazabilidad
+ están preparadas y mantenidas actualizadas, consistentes.
+ 
+\end_layout
+
+\begin_layout Subsection
+Conformidad de la implementación respecto al diseño
+\end_layout
+
+\begin_layout Itemize
+Trazar cada artefacto del diseño con el código que lo implementa.
+ 
+\end_layout
+
+\begin_layout Itemize
+Revisar la consistencia del código con el modelo (diseño) 
+\end_layout
+
+\begin_layout Subsection
+Conformidad de la implementación respecto a los requerimientos
+\end_layout
+
+\begin_layout Itemize
+Trazar cada requerimiento con el bloque de código fuente que lo implementa.
+ 
+\end_layout
+
+\begin_layout Itemize
+Revisar la existencia de módulos implementados para la segmentación de videos.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Verificar la implementación correcta y/o parcial de cada algoritmo de segmentaci
+ón (obtención de máscara de la cancha y <<blobs>> de jugadores) 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Revisar la existencia de módulos implementados de captura y procesamiento
+ de videos (abrir, extracción de <<frames>>,y guardar video) 
+\end_layout
+
+\begin_layout Itemize
+Realizar revisión y cambios en la implementación.
+ Registrar el cambio y las pruebas unitarias realizadas exitosas antes de
+ subir al repositorio.
+ 
+\end_layout
+
+\begin_layout Itemize
+Cumplimiento de estándares
+\end_layout
+
+\begin_layout Subsection
+Cumplimiento de estándares
+\end_layout
+
+\begin_layout Itemize
+Realizar revisiones de código fuente y el código desarrollo para los cambios
+ con el fin de detectar el uso incorrecto del estándar y la mantenibilidad
+ del código.
+ 
+\end_layout
+
+\begin_layout Itemize
+Generar una lista de comprobación para la inspección de código.
+ http://users.csc.calpoly.edu/~jdalbey/205/Resources/InspectChecklist.html 
+\end_layout
+
+\begin_layout Itemize
+Identificar código poco auto-explicable y apuntar en caso contrario qué
+ código es confuso.
+ 
+\end_layout
+
+\begin_layout Subsection
+Revisión de los tests unitarios, de integración y aceptación
+\end_layout
+
+\begin_layout Itemize
+Diseñar y crear las pruebas unitarias, de integración.
+ Crear un plan de seguimiento para aplicar las pruebas.
+ 
+\end_layout
+
+\begin_layout Itemize
+Diseñar los casos de prueba de aceptación para cada requerimiento funcional
+ y no-funcional.
+ 
+\end_layout
+
+\begin_layout Itemize
+Reunirse, con acuerdo mutuo de tiempo, con el cliente para realizar pruebas
+ de aceptación.
+ 
+\end_layout
+
+\begin_layout Itemize
+Aplicar las pruebas de integración a los módulos o componentes del sistema
+ (únicamente el código aprobado con las pruebas unitarias pueden ser ingresadas
+ al repositorio) 
+\end_layout
+
+\begin_layout Itemize
+Generar un reporte resumen con resultados de pruebas del sistema.
+ 
+\end_layout
+
+\begin_layout Itemize
+Documentar y reportar los errores/defectos encontrados en la aplicación
+ de las pruebas.
+ 
+\end_layout
+
+\begin_layout Subsection
+Recolección y análisis de evidencias de defectos y errores
+\end_layout
+
+\begin_layout Itemize
+Realizar inspecciones de código crítico (funciones, métodos y algoritmos
+ importantes para procesamiento de videos) para detectar potenciales defectos.
+\end_layout
+
+\end_body
+\end_document
