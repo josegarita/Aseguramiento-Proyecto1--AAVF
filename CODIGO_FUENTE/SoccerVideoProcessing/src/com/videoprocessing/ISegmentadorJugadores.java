@@ -8,22 +8,26 @@ import org.opencv.core.Mat;
  */
 public interface ISegmentadorJugadores {
 	/**
-	 * 
-	 * @param pFrame
-	 * @return interface
+	 * Método que obtiene la máscara con el campo de juego detectado en un imagen.
+	 * La imagen debe contener la zona de juego bien delimitada, la cancha debe ser verde 
+	 * y preferiblemente sin ningún tipo de estorbo o espuria. 
+	 * @param pFrame. Una imagen del campo de juego y los jugadores
+	 * @return Una imagen binaria con la cancha detectada
 	 */
 	public Mat obtenerMascaraCampo(Mat pFrame);
 	/**
-	 * 
-	 * @param pFrame
-	 * @return
+	 * Método que obtiene la máscara con los jugadores ubicados en la cancha.
+	 * Los jugadores son bien visibles, no hay espurias o obstáculos en la imagen
+	 * @param pFrame Un imagen del campo de juego y los jugadores
+	 * @return Una imagen binaria con la máscara de jugadores
 	 */
 	public Mat obtenerMascaraJugadores(Mat pFrame);
 	/**
-	 * 
-	 * @param pCancha
-	 * @param pJugadores
-	 * @return
+	 * Este método realiza una operación AND lógico entre las máscaras de jugadores y 
+	 * la cancha para obtener los blobs de los jugadores.
+	 * @param pCancha Mácara binaria con la cancha detectada
+	 * @param pJugadores Máscara binaria con los blos de los jugadores 
+	 * @return Una imagen binaria con los blobs de los jugadores detectados
 	 */
 	public Mat obtenerBlobs(Mat pCancha, Mat pJugadores);
 }
