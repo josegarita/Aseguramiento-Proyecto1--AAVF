@@ -8,8 +8,8 @@ import org.opencv.videoio.VideoCapture;
 import org.opencv.videoio.VideoWriter;
 import org.opencv.videoio.Videoio;
 
-import com.videoprocessing.ISegmentadorJugadores;
-import com.videoprocessing.SegmentadorJugadores;
+import com.modelo.videoprocessing.ISegmentadorJugadores;
+import com.modelo.videoprocessing.SegmentadorJugadores;
 
 /**
  * @author José Mario Naranjo Leiva
@@ -59,10 +59,10 @@ public class Main  {
 
                 Mat hier = s.obtenerBlobs(cancha, jugadores);
 
-                //v.write(hier);
+                v.write(hier);
 
-                Imgcodecs.imwrite(_pathAImagenes + i + "c.jpg", hier);
-                Imgcodecs.imwrite(_pathAImagenes + i + ".jpg", frame);
+                //Imgcodecs.imwrite(_pathAImagenes + i + "c.jpg", hier);
+                //Imgcodecs.imwrite(_pathAImagenes + i + ".jpg", frame);
                
                 i++; 
             }

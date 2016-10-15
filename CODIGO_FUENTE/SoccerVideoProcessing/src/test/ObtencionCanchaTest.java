@@ -8,8 +8,8 @@ import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 
-import com.videoprocessing.ISegmentadorJugadores;
-import com.videoprocessing.SegmentadorJugadores;
+import com.modelo.videoprocessing.ISegmentadorJugadores;
+import com.modelo.videoprocessing.SegmentadorJugadores;
 
 public class ObtencionCanchaTest {
 

@@ -1,4 +1,4 @@
-package com.videoprocessing;
+package com.modelo.videoprocessing;
 
 import java.util.ArrayList;
 
