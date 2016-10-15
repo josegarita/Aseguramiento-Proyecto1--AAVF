@@ -1,0 +1,7 @@
+
+En este archivo se presentan los links donde se puede descargar las herramientas
+usadas para la medición de las métricas del sistema.
+
+
+Apache JMETER, versión 3.0
+https://drive.google.com/open?id=0B0YvGIx_I8wPMmRqMldvNW5HVXM
