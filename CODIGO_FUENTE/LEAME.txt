@@ -1,0 +1,5 @@
+En esta carpeta
+
+Carpeta PRUEBA_DE_CONCEPTO: Carpeta con otros proyectos y código fuente sobre pruebas de concepto
+sobre manipulación de imágenes y algoritmos de clasificación no supervisada.
+SoccerVideoProcessing : Proyecto principal con el código del sistema de segmentación de jugadores
