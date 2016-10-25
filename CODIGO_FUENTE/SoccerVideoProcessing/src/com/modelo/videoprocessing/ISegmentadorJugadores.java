@@ -3,30 +3,33 @@ package com.modelo.videoprocessing;
 import org.opencv.core.Mat;
 
 /**
- * @author JosÈ Mario Naranjo Leiva
+ * Esta interfaz indica los m√©todos para la implementaci√≥n del algoritmo de segmentaci√≥n.
+ * El algoritmo se encuentra especificacido en la secci√≥n 2 del documento de especificaci√≥n del proyecto.
+ * Ubicaci√≥n en el repositorio: Aseguramiento-Proyecto1--AAVF\master(ESPECIFICACIONES\Enunciados\Proyecto1.pdf
+ * @author Jos√© Mario Naranjo Leiva
  * @version 0.1
  */
 public interface ISegmentadorJugadores {
 	/**
-	 * MÈtodo que obtiene la m·scara con el campo de juego detectado en un imagen.
+	 * M√©todo que obtiene la m√°scara con el campo de juego detectado en un imagen.
 	 * La imagen debe contener la zona de juego bien delimitada, la cancha debe ser verde 
-	 * y preferiblemente sin ning˙n tipo de estorbo o espuria. 
+	 * y preferiblemente sin ning√∫n tipo de estorbo o espuria. 
 	 * @param pFrame. Una imagen del campo de juego y los jugadores
 	 * @return Una imagen binaria con la cancha detectada
 	 */
 	public Mat obtenerMascaraCampo(Mat pFrame);
 	/**
-	 * MÈtodo que obtiene la m·scara con los jugadores ubicados en la cancha.
-	 * Los jugadores son bien visibles, no hay espurias o obst·culos en la imagen
+	 * M√©todo que obtiene la m√°scara con los jugadores ubicados en la cancha.
+	 * Los jugadores son bien visibles, no hay espurias o obst√°culos en la imagen
 	 * @param pFrame Un imagen del campo de juego y los jugadores
-	 * @return Una imagen binaria con la m·scara de jugadores
+	 * @return Una imagen binaria con la m√°scara de jugadores
 	 */
 	public Mat obtenerMascaraJugadores(Mat pFrame);
 	/**
-	 * Este mÈtodo realiza una operaciÛn AND lÛgico entre las m·scaras de jugadores y 
+	 * Este m√©todo realiza una operaci√≥n AND l√≥gico entre las m√°scaras de jugadores y 
 	 * la cancha para obtener los blobs de los jugadores.
-	 * @param pCancha M·cara binaria con la cancha detectada
-	 * @param pJugadores M·scara binaria con los blos de los jugadores 
+	 * @param pCancha M√°cara binaria con la cancha detectada
+	 * @param pJugadores M√°scara binaria con los blos de los jugadores 
 	 * @return Una imagen binaria con los blobs de los jugadores detectados
 	 */
 	public Mat obtenerBlobs(Mat pCancha, Mat pJugadores);
