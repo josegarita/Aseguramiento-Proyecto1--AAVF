@@ -27,14 +27,14 @@ public class CreacionVideoTest {
 		
 		VideoCapture original = new VideoCapture();
         original.open(_pathAlVideo);
-        
-        VideoCapture resultado = new VideoCapture();
-        resultado.open(_pathAlVideoRes);
-        
-        int a = (int) original.get(Videoio.CAP_PROP_FRAME_COUNT);
-        int b = (int) resultado.get(Videoio.CAP_PROP_FRAME_COUNT);
-        assertEquals(a,b);
-        
+        if(original.isOpened()){
+	        VideoCapture resultado = new VideoCapture();
+	        resultado.open(_pathAlVideoRes);
+	        
+	        int a = (int) original.get(Videoio.CAP_PROP_FRAME_COUNT);
+	        int b = (int) resultado.get(Videoio.CAP_PROP_FRAME_COUNT);
+	        assertEquals(a,b);
+        }
         
 	}
 
