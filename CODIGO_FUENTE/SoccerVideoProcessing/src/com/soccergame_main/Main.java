@@ -13,9 +13,16 @@ import com.modelo.videoprocessing.SegmentadorJugadores;
 
 /**
  * @author José Mario Naranjo Leiva
- * @version 0.1
+ * @version 0.2
+ * Cambios por Jose Garita
  */
-public class Main  {
+public class Main  implements Runnable{
+	
+	/*verifica si ya terminó
+	 * 
+	 * */
+	private static boolean _verificarTermina = false;
+	
 	/**
 	 *  video de entrada.
 	 */
@@ -35,7 +42,7 @@ public class Main  {
 	/**
 	 * @param args
 	 */
-	public static void main(String args[])
+	public void run() 
 	{
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         
@@ -43,6 +50,8 @@ public class Main  {
         VideoCapture camera = new VideoCapture();
         camera.open(_pathAlVideo);
 
+        System.out.println(camera.isOpened());
+        
         final Size frameSize = new Size((int) camera.get(
         		Videoio.CAP_PROP_FRAME_WIDTH),
         		(int) camera.get(Videoio.CAP_PROP_FRAME_HEIGHT));
@@ -70,7 +79,15 @@ public class Main  {
             	break;      
             }	
         }
+		setVerificarTermina(true);
 		System.out.println("Done");
         v.release();
+	}
+	
+	public boolean isVerificarTermina() {
+		return _verificarTermina;
+	}
+	public void setVerificarTermina(boolean verificarTermina) {
+		this._verificarTermina = verificarTermina;
 	}
 }
