@@ -1,5 +1,6 @@
 package com.soccergame_main;
 
+import java.awt.geom.CubicCurve2D;
 import java.util.MissingFormatArgumentException;
 
 /**
@@ -48,6 +49,6 @@ public class VerificadorTiempo implements  Runnable {
 		 thMain.start();
 		Thread.sleep(5000);
 		System.out.println(imprimirResultado());
-		 
+	
 	 }
 }
