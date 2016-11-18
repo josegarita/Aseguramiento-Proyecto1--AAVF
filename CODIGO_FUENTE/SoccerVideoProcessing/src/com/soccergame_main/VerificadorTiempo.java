@@ -19,19 +19,22 @@ public class VerificadorTiempo implements  Runnable {
 		hiloEjecución.start();
 		while(true){
 			try {
-				if (tiempo==30) {
+				if (tiempo == 30) 
+				{
 					hiloEjecución.stop();
 					mensajeFinal = "Se termina el proceso";
 					break;
 				}
-				if(main.isVerificarTermina()){
+				if(main.isVerificarTermina())
+				{
 					mensajeFinal = "El proceso terminó antes";
 					break;
 				}
 				tiempo++;
 				System.out.println(tiempo);
 				Thread.sleep(1000);
-			} catch (InterruptedException e) {
+			} catch (InterruptedException e)
+			{
 				break;
 			}
 			
@@ -39,12 +42,14 @@ public class VerificadorTiempo implements  Runnable {
 		}
 	}
 	
-	public static String imprimirResultado(){
+	public static String imprimirResultado()
+	{
 		//System.out.println(mensajeFinal);
 		return mensajeFinal;
 	}
 	
-	 public static void main(String args[]) throws InterruptedException {
+	 public static void main(String args[]) throws InterruptedException
+	 {
 		 Thread thMain = new Thread(new VerificadorTiempo());
 		 thMain.start();
 		Thread.sleep(5000);
