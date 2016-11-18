@@ -18,7 +18,7 @@ import com.modelo.videoprocessing.SegmentadorJugadores;
  */
 public class Main  implements Runnable{
 	
-	/*verifica si ya terminó
+	/* Verifica si ya terminó
 	 * 
 	 * */
 	private static boolean _verificarTermina = false;
@@ -39,9 +39,6 @@ public class Main  implements Runnable{
 	private static String _pathAImagenes = 
 			"C:\\ACS\\frames\\";
 	
-	/**
-	 * @param args
-	 */
 	public void run() 
 	{
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
@@ -61,11 +58,12 @@ public class Main  implements Runnable{
    
         ISegmentadorJugadores s = new SegmentadorJugadores();
         int i = 0;
-		while (true) {
-            if (camera.read(frame)) {
+		while (true)
+		{
+            if (camera.read(frame))
+            {
                 Mat cancha = s.obtenerMascaraCampo(frame);
                 Mat jugadores = s.obtenerMascaraJugadores(frame);
-
                 Mat hier = s.obtenerBlobs(cancha, jugadores);
 
                 v.write(hier);
@@ -75,7 +73,8 @@ public class Main  implements Runnable{
                
                 i++; 
             }
-            else {
+            else 
+            {
             	break;      
             }	
         }
@@ -84,10 +83,12 @@ public class Main  implements Runnable{
         v.release();
 	}
 	
-	public boolean isVerificarTermina() {
+	public boolean isVerificarTermina()
+	{
 		return _verificarTermina;
 	}
-	public void setVerificarTermina(boolean verificarTermina) {
+	public void setVerificarTermina(boolean verificarTermina)
+	{
 		this._verificarTermina = verificarTermina;
 	}
 }

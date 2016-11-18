@@ -30,7 +30,8 @@ public class ObtencionBlobs_GroundTruth {
 	}
 
 	@Test
-	public void testObtenerBlobs() {
+	public void testObtenerBlobs() 
+	{
 		assertTrue(Metricas.indiceDice(automaticFrame, manualFrame) >= 0.5);
 	}
 
