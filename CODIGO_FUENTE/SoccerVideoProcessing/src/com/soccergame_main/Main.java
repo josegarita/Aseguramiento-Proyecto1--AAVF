@@ -68,8 +68,8 @@ public class Main  implements Runnable{
 
                 v.write(hier);
 
-                //Imgcodecs.imwrite(_pathAImagenes + i + "c.jpg", hier);
-                //Imgcodecs.imwrite(_pathAImagenes + i + ".jpg", frame);
+                Imgcodecs.imwrite(_pathAImagenes + i + "c.jpg", cancha);
+                Imgcodecs.imwrite(_pathAImagenes + i + ".jpg", jugadores);
                
                 i++; 
             }

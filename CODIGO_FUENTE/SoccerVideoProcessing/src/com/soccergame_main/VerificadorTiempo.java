@@ -1,8 +1,5 @@
 package com.soccergame_main;
 
-import java.awt.geom.CubicCurve2D;
-import java.util.MissingFormatArgumentException;
-
 /**
  * @author José Rodolfo Garita
  * @version 0.1
